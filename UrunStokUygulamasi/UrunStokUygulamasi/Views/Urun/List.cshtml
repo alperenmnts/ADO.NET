@@ -1,0 +1,56 @@
+﻿@model IEnumerable<UrunStokUygulamasi.Models.Urunler>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 style="color:darkslategrey">Ürün Listesi</h2>
+@Html.Raw(TempData["InsertMsg"])
+@Html.Raw(TempData["EditMsg"])
+@Html.Raw(TempData["DeleteMsg"])
+@Html.Raw(TempData["DeleteErrorMsg"])
+
+<table class="table">
+    <tr>
+        <th>
+            Ürün Adı
+            @*@Html.DisplayNameFor(model => model.UrunAdi)*@
+        </th>
+        <th>
+            Açıklama
+            @*@Html.DisplayNameFor(model => model.Description)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stok)
+        </th>
+        <th>
+            Son İşlem Tarihi
+            @*@Html.DisplayNameFor(model => model.Tarih)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary", @style = "font-size:12px" }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id}, new { @class = "btn btn-danger", @style = "font-size:12px", onclick = "return confirm('Silmek istediğinize emin misiniz?');" }) |
+                @Html.ActionLink("Satın Al", "Stok", new { id = item.Id }, new { @class = "btn btn-success", @style = "font-size:12px" })
+            </td>
+        </tr>
+    }
+
+</table>

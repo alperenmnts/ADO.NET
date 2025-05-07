@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EmployeeApp.Models.Employee>
+
+@{
+    ViewBag.Title = "List";
+}
+
+@Html.Raw(TempData["InsertMsg"])
+@Html.Raw(TempData["UpdateMsg"])
+@Html.Raw(TempData["DeleteMsg"])
+@Html.Raw(TempData["DeleErrorteMsg"])
+
+<h2>Çalışan Listesi</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            İsim
+            @*@Html.DisplayNameFor(model => model.EmpName)*@
+        </th>
+        <th>
+            Soyisim
+            @*@Html.DisplayNameFor(model => model.Surname)*@
+        </th>
+        <th>
+            TC Kimlik
+            @*@Html.DisplayNameFor(model => model.Kimlik)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departman)
+        </th>
+        <th>
+            İşe Giriş Tarihi
+            @*@Html.DisplayNameFor(model => model.Date)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kimlik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departman)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { onclick = "return confirm('Silmek istediğinize emin misiniz?');" })
+            </td>
+        </tr>
+    }
+
+</table>

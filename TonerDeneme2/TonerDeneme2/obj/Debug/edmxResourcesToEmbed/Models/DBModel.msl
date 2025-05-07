@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TonerStokModelStoreContainer" CdmEntityContainer="TonerStokEntities1">
+    <EntitySetMapping Name="Tonerlers">
+      <EntityTypeMapping TypeName="TonerStokModel.Tonerler">
+        <MappingFragment StoreEntitySet="Tonerler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
